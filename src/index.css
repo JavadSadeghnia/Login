@@ -1,0 +1,8 @@
+:root {
+  font-family: 'Matrix';
+}
+
+@font-face {
+  font-family: 'Matrix';
+  src: url(pages/assets/font/matrix.ttf);
+}

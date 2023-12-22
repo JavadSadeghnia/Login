@@ -1,0 +1,326 @@
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
+  --border-size: 3px;
+  --border-angle: 0turn;
+  width: 400px;
+  height: 500px;
+  background-image: conic-gradient(from var(--border-angle), rgb(18, 28, 13), rgb(18, 28, 13) 50%, rgb(18, 28, 13)), conic-gradient(from var(--border-angle), transparent 15%, rgb(208, 255, 0), rgb(178, 255, 163));
+  background-size: calc(100% - var(--border-size) * 2) calc(100% - var(--border-size) * 2), cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: bg-spin 7s linear infinite;
+}
+.box > h2 {
+  text-transform: capitalize;
+  height: 20%;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+.box > form {
+  width: 70%;
+  height: 80%;
+  color: aliceblue;
+  margin: 10px auto;
+}
+.box > form > label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.box > form > label > input {
+  width: 350px;
+  height: 60px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  background-color: black;
+  border: 2px solid #fff;
+  color: #fff;
+  outline: none;
+}
+.box > form > label > label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 19px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+.box > form > label > input:focus {
+  border: 2px solid #87cb00;
+}
+.box > form > label > input:focus ~ label,
+.box > form > label > input:valid ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 2px;
+  background: #060b23;
+}
+.box > form > button {
+  width: 60%;
+  line-height: 1px;
+  margin-left: 20%;
+  margin-top: 10px;
+  font-size: 22px;
+  font-family: "Matrix";
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+/*********** button ***********/
+.draw-border {
+  box-shadow: inset 0 0 0 4px #ffffff;
+  color: #ffffff;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+}
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:hover {
+  color: #7dba02;
+}
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: #7dba02;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem "Roboto Slab", sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+}
+.btn:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+/************ Matrix rain **************/
+#matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: -1;
+  font-family: "Matrix";
+}
+
+@font-face {
+  font-family: "Matrix";
+  src: url(font/matrix.ttf);
+}
+/********** box2 ************/
+.box2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  color: #1c2900;
+  background-color: #aaaaaa;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 20px;
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+.box2 > div {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #1c2900;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  transform: 0.4s;
+}
+.box2 > div:nth-child(2) {
+  background-color: #2b2b2b;
+  color: #fff;
+  font-family: "Matrix";
+  font-size: 40px;
+  text-shadow: 0px 0px 10px rgb(0, 169, 0);
+}
+.box2 > div:nth-child(3) {
+  background-color: #595959;
+  font-size: 30px;
+  color: #ffffff;
+  font-family: "Matrix";
+  text-shadow: 0px 0px 8px rgb(0, 169, 0);
+}
+.box2 > div:hover {
+  background-color: #757575;
+}
+.box2 > div > div {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box2 > div > div:nth-child(1) {
+  width: 5%;
+}
+.box2 > div > div:nth-child(2), .box2 > div > div:nth-child(3) {
+  width: 25%;
+}
+
+#logout {
+  width: 65px;
+  height: 35px;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#logout:hover {
+  color: rgb(62, 205, 0);
+}
+
+/*************** boxR *******************/
+.boxR {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  --border-size: 3px;
+  --border-angle: 0turn;
+  width: 400px;
+  height: 500px;
+  background-image: conic-gradient(from var(--border-angle), rgb(49, 51, 57), rgb(49, 51, 57) 50%, rgb(49, 51, 57)), conic-gradient(from var(--border-angle), transparent 15%, rgb(0, 64, 255), rgb(163, 232, 255));
+  background-size: calc(100% - var(--border-size) * 2) calc(100% - var(--border-size) * 2), cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation: bg-spin 7s linear infinite;
+}
+.boxR > form {
+  width: 70%;
+  color: aliceblue;
+  margin: 10px auto;
+}
+.boxR > form > label {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.boxR > form > label > input {
+  width: 350px;
+  height: 60px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 15px;
+  background-color: black;
+  border: 2px solid #fff;
+  color: #fff;
+  outline: none;
+}
+.boxR > form > label > label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 19px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+.boxR > form > label > input:focus {
+  border: 2px solid #008cff;
+}
+.boxR > form > label > input:focus ~ label,
+.boxR > form > label > input:valid ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 2px;
+  background: #060b23;
+}
+.boxR > form > button {
+  width: 60%;
+  line-height: 1px;
+  margin-left: 20%;
+  margin-top: 10px;
+  font-size: 22px;
+  font-family: "Matrix";
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+/********** alert **********/
+#alert {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: -60px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  transition: 0.5s;
+}/*# sourceMappingURL=LoginPage.css.map */
